@@ -1,10 +1,9 @@
 ---
-title: 'Reproducible Research: Peer Assessment 1'
+title: "Reproducible Research: Peer Assessment 1"
 output:
-  html_document:true
+  html_document:
     keep_md: true
 ---
-
 
 ## Loading and preprocessing the data
 
@@ -22,7 +21,7 @@ stepsPerDay<- aggregate(steps ~ date, data,sum )
 hist(stepsPerDay$steps, xlab = "Total Steps Per Day" , main="Histogram of Total Steps per Day", col = "green")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 ### Calculate mean and median of total steps per day
 
 ```r
@@ -40,7 +39,7 @@ avgStepsPerInterval <- aggregate(steps ~ interval, data, mean)
 plot(avgStepsPerInterval$interval, avgStepsPerInterval$steps, type="l", ylab = "Average Steps per Interval" , xlab = "Interval")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 ##  Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps ?
 
 ```r
@@ -67,7 +66,7 @@ imputedStepsPerDay<- aggregate(steps ~ date, imputed_data,sum )
 hist(imputedStepsPerDay$steps, xlab = "Total Steps Per Day (imputed data)" , main="Histogram of Total Steps per Day (imputed data)", col = "blue")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 ```r
 # Calculate new mean and median of the imputed data set
@@ -96,7 +95,7 @@ avgStepsPerIntervalDayofWeek <- aggregate(steps ~ interval + dayofweek, imputed_
 xyplot(avgStepsPerIntervalDayofWeek$steps ~ avgStepsPerIntervalDayofWeek$interval|avgStepsPerIntervalDayofWeek$dayofweek, main="Average Steps per Day by Interval",xlab="Interval", ylab="Steps",layout=c(1,2), type="l")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
 
 There is a higher peak earlier on weekdays between interval 500-1000 in excess of 200 steps. The average level of activity(Steps) however seems higher on weekends.
 
